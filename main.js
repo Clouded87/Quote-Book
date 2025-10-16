@@ -18,9 +18,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 //const firestoredb = getFirestore(app);
+const logoutBtn = document.getElementById('logout-button')
 const loggedInView = document.getElementById('logged-in-view')
 const loggedOutView = document.getElementById('logged-out-view')
-const userEmail = document.getElementById('user-email')
 const emailSignInForm = document.getElementById('signin-email-input')
 const passwordSignInForm = document.getElementById('signin-password-input')
 const loginBtn = document.getElementById('sign-in-btn')
@@ -45,7 +45,7 @@ onAuthStateChanged(auth, async (user) => { // Await checkAdmPings here
       
       //console.log(email)
       loggedInView.style.display = 'block'
-      userEmail.innerText = email
+      emailSignInForm.innerText = email
       emailSignInForm.value = ""
       passwordSignInForm.value = ""
       loggedOutView.style.display = 'none'
@@ -78,4 +78,4 @@ passwordSignInForm.addEventListener("keypress", function(event) {
     loginBtn.click();
   }
 });
-//logoutBtn.addEventListener('click', () => {logout()})
+logoutBtn.addEventListener('click', () => {logout()})

@@ -1,31 +1,31 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js';
-//import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js';
+import { initializeApp } from "firebase/app";
+import { getFirestore } from 'firebase/firestore';
 import { getAuth, 
          signInWithEmailAndPassword, 
          onAuthStateChanged,
-         signOut } from 'https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js';
+         signOut } from "firebase/auth";
 const firebaseConfig = {
-  apiKey: "AIzaSyAYjLbsdGgVccTHa_bpEaDh7orYmzldiMk",
-  authDomain: "stewflandic-permission-system.firebaseapp.com",
-  databaseURL: "https://stewflandic-permission-system-default-rtdb.firebaseio.com",
-  projectId: "stewflandic-permission-system",
-  storageBucket: "stewflandic-permission-system.firebasestorage.app",
-  messagingSenderId: "1035943934052",
-  appId: "1:1035943934052:web:d3b8c6802c9a99ec81c771"
+  apiKey: "AIzaSyBEBzX_1oDGVrh84OrNg9kkuQBIhUwyMSU",
+  authDomain: "quote-book-87.firebaseapp.com",
+  projectId: "quote-book-87",
+  storageBucket: "quote-book-87.firebasestorage.app",
+  messagingSenderId: "633173164469",
+  appId: "1:633173164469:web:181ccf5780ca589eb5d9fc"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
-//const firestoredb = getFirestore(app);
+const firestoredb = getFirestore(app);
 const logoutBtn = document.getElementById('logout-button')
 const loggedInView = document.getElementById('logged-in-view')
+const adminView = document.getElementById('admin-logged-in-view')
 const loggedOutView = document.getElementById('logged-out-view')
 const emailSignInForm = document.getElementById('signin-email-input')
 const passwordSignInForm = document.getElementById('signin-password-input')
 const loginBtn = document.getElementById('sign-in-btn')
 //const logoutBtn = document.getElementById('logout-button')
-var email = ""
+let email = ""
 let uid = '';
 function logout() {
   
@@ -42,9 +42,11 @@ onAuthStateChanged(auth, async (user) => { // Await checkAdmPings here
     if (user) {
       uid = user.uid;
       email = user.email;
-      
-      //console.log(email)
-      loggedInView.style.display = 'block'
+      console.log(uid);
+      if (uid == "Ka02GemtK8fqTR31PnliLqBxRJI2" || uid == "fhlTbn28L0ZkHnimiZoVZP7fr9v2") {
+        adminView.style.display = 'block'
+      } else {
+      loggedInView.style.display = 'block'}
       emailSignInForm.innerText = email
       emailSignInForm.value = ""
       passwordSignInForm.value = ""

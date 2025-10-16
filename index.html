@@ -39,12 +39,31 @@
                 </div>
             </section>
 
-            
             <!-- Section for logged-in view -->
             <section id="logged-in-view">
                 <button id="logout-button" class="logout-btn">Logout</button>
-                
             </section>
+
+            <!-- Section for admin-logged-in view -->
+            <section id="admin-logged-in-view">
+                <div id="quote-add-form" class="quote-form-container">
+                            <div class="quote-form">
+                                <h2>Add Quote</h2>
+                                <div class="input-group">
+                                    <input type="qtext" id="quote-text-input" name="quote-text" placeholder="Quote Text" required>
+                                </div>
+                                <div class="input-group">
+                                    <input type="atext" id="author-input" name="author" placeholder="Author" required>
+                                    <div id="password-error-message" class="error-msg"></div>
+                                </div>
+                                <div id="sign-in-btn" class="login-btn">Add Quote</div>
+                               
+                                
+                            </div>
+                        </div>
+                <button id="logout-button" class="logout-btn">Logout</button>
+            </section>
+
         </div>
     </main>
 </body>

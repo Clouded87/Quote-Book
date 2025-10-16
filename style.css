@@ -47,6 +47,9 @@ h1 {
 #logged-in-view {
   display: none;
 }
+#admin-logged-in-view {
+  display: none;
+}
 
 /* Auth Page Container */
 .auth-page_container {

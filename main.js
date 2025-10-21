@@ -17,14 +17,15 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const firestoredb = getFirestore(app);
-const logoutBtn = document.getElementById('logout-button')
+const logoutBtn1 = document.getElementById('logout-btn1')
+const logoutBtn2 = document.getElementById('logout-btn2')
 const loggedInView = document.getElementById('logged-in-view')
 const adminView = document.getElementById('admin-logged-in-view')
 const loggedOutView = document.getElementById('logged-out-view')
 const emailSignInForm = document.getElementById('signin-email-input')
 const passwordSignInForm = document.getElementById('signin-password-input')
 const loginBtn = document.getElementById('sign-in-btn')
-//const logoutBtn = document.getElementById('logout-button')
+//const logoutBtns = document.getElementById('logout-button')
 let email = ""
 let uid = '';
 function logout() {
@@ -80,4 +81,5 @@ passwordSignInForm.addEventListener("keypress", function(event) {
     loginBtn.click();
   }
 });
-logoutBtn.addEventListener('click', () => {logout()})
+logoutBtn1.addEventListener('click', () => {logout()})
+logoutBtn2.addEventListener('click', () => {logout()})

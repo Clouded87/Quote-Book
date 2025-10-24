@@ -7,46 +7,57 @@ export async function getAndDisplayQuotes() {
     try {
         const querySnapshot = await getDocs(collection(firestoredb, 'Quotes'));
         quotesContainer.innerHTML = ''; // Clear loading message
-
+        quotesContainer1.innerHTML = ''; // Clear loading message
         if (querySnapshot.empty) {
             quotesContainer.innerHTML = '<p>No quotes found yet!</p>';
+            quotesContainer1.innerHTML = '<p>No quotes found yet!</p>';
             return;
         }
 
         querySnapshot.forEach(doc => {
             const quote = doc.data();
-            const quoteElement = document.createElement('div');
-            quoteElement.classList.add('quote-item');
-            
-            // Add delete button for admin view
+            const quoteId = doc.id;
+
+            // Is the current signed-in user in admin view? (used to decide whether admin element needs delete)
             const isAdminView = document.getElementById('admin-logged-in-view').style.display === 'block';
-            const deleteButton = isAdminView ? `
-                <button class="delete-btn" data-quote-id="${doc.id}">Delete</button>
-            ` : '';
-            
-            quoteElement.innerHTML = `
-                <div class="quote-content">
-                    <p class="quote-text">"${quote.Text}"</p>
-                    <p class="quote-author">- ${quote.Author}</p>
-                </div>
-                ${deleteButton}
-            `;
-            quotesContainer.appendChild(quoteElement);
-            quotesContainer1.appendChild(quoteElement);
-            
-            // Add delete event listener if in admin view
-            if (isAdminView) {
-                const deleteBtn = quoteElement.querySelector('.delete-btn');
-                deleteBtn.addEventListener('click', async () => {
-                    if (confirm('Are you sure you want to delete this quote?')) {
-                        await deleteQuote(doc.id);
+
+            // Helper to build a quote element. includeDelete adds the delete button and its handler.
+            function buildQuoteElement(includeDelete) {
+                const el = document.createElement('div');
+                el.classList.add('quote-item');
+                el.innerHTML = `
+                    <div class="quote-content">
+                        <p class="quote-text">"${quote.Text}"</p>
+                        <p class="quote-author">- ${quote.Author}</p>
+                    </div>
+                    ${includeDelete ? `<button class="delete-btn" data-quote-id="${quoteId}">Delete</button>` : ''}
+                `;
+
+                if (includeDelete) {
+                    const deleteBtn = el.querySelector('.delete-btn');
+                    if (deleteBtn) {
+                        deleteBtn.addEventListener('click', async () => {
+                            if (confirm('Are you sure you want to delete this quote?')) {
+                                await deleteQuote(quoteId);
+                            }
+                        });
                     }
-                });
+                }
+
+                return el;
             }
+
+            // Create separate elements for admin and user views. Do NOT append the same node twice.
+            const adminElement = buildQuoteElement(isAdminView);
+            const userElement = buildQuoteElement(false);
+
+            quotesContainer.appendChild(adminElement);
+            quotesContainer1.appendChild(userElement);
         });
     } catch (error) {
         console.error("Error getting documents: ", error);
         quotesContainer.innerHTML = '<p>Error loading quotes. Please check the console.</p>';
+        quotesContainer1.innerHTML = '<p>Error loading quotes. Please check the console.</p>';
     }
 }
 

@@ -13,10 +13,11 @@ const firebaseConfig = {
   appId: "1:633173164469:web:181ccf5780ca589eb5d9fc"
 };
 
+import { getAndDisplayQuotes } from './script.js';
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth();
-const firestoredb = getFirestore(app);
+export const firestoredb = getFirestore(app);
 const logoutBtn1 = document.getElementById('logout-btn1')
 const logoutBtn2 = document.getElementById('logout-btn2')
 const loggedInView = document.getElementById('logged-in-view')
@@ -52,6 +53,7 @@ onAuthStateChanged(auth, async (user) => { // Await checkAdmPings here
       emailSignInForm.value = ""
       passwordSignInForm.value = ""
       loggedOutView.style.display = 'none'
+      getAndDisplayQuotes();
 
     } else {
       // User is signed out

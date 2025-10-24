@@ -44,7 +44,10 @@
 
             <!-- Section for logged-in view -->
             <section id="logged-in-view">
-                <button id="logout-btn1" class="logout-btn">Logout</button>
+                <div class="top-controls">
+                  <button id="lore-btn1" class="nav-btn">Lore Bits</button>
+                  <button id="logout-btn1" class="logout-btn">Logout</button>
+                </div>
                 <div class="container">
                     <h1>Your Quotes</h1>
                     <div id="quotes-container1">
@@ -55,7 +58,10 @@
 
             <!-- Section for admin-logged-in view -->
             <section id="admin-logged-in-view">
-                <button id="logout-btn2" class="logout-btn">Logout</button>
+                <div class="top-controls">
+                  <button id="lore-btn2" class="nav-btn">Lore Bits</button>
+                  <button id="logout-btn2" class="logout-btn">Logout</button>
+                </div>
                 <div class="container">
                     <h1>Your Quotes</h1>
                     <div id="quotes-container">
@@ -77,6 +83,20 @@
                                 
                             </div>
                         </div>
+            </section>
+
+            <!-- Section for Lore Bits page -->
+            <section id="lore-view" style="display:none;">
+                <div class="top-controls">
+                  <button id="lore-back-btn" class="nav-btn">Back</button>
+                  <button id="lore-logout-btn" class="logout-btn">Logout</button>
+                </div>
+                <div class="container">
+                    <h1>Lore Bits</h1>
+                    <div id="lore-container">
+                        <p>Welcome to Lore Bits. Add your short lore entries here.</p>
+                    </div>
+                </div>
             </section>
 
         </div>

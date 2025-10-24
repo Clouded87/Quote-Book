@@ -295,6 +295,27 @@ h1 {
   width: 100%;
   padding: 0px 0;
 }
+
+.top-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.nav-btn {
+  padding: 8px 14px;
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.nav-btn:hover {
+  filter: brightness(0.95);
+}
 .hidden-form {
   display:grid;
 
@@ -455,4 +476,10 @@ h1 {
 
 .delete-btn:hover {
     background-color: #c82333;
+}
+
+/* Lore view specific */
+#lore-container p {
+  color: #444;
+  line-height: 1.6;
 }

@@ -1,5 +1,5 @@
 import { initializeApp } from "./node_modules/firebase/app";
-import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from './node_modules/firebase/firestore';
+import { getFirestore } from './node_modules/firebase/firestore';
 import { getAuth, 
          signInWithEmailAndPassword, 
          onAuthStateChanged,

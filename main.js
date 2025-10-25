@@ -47,8 +47,8 @@ function logout() {
 onAuthStateChanged(auth, async (user) => { // Await checkAdmPings here
     if (user) {
       uid = user.uid;
-      console.log(token);
-      if (uid == "Ka02GemtK8fqTR31PnliLqBxRJI2" || uid == "fhlTbn28L0ZkHnimiZoVZP7fr9v2") {
+      const idTokenResult = await user.getIdTokenResult(true);
+      if (idTokenResult.claims.admin === true) {
         adminView.style.display = 'block'
        } else {
        loggedInView.style.display = 'block'}

@@ -1,9 +1,9 @@
 import { initializeApp } from "./node_modules/firebase/app";
-import { getFirestore } from './node_modules/firebase/firestore';
+import { getFirestore, collection, getDocs, addDoc, deleteDoc, doc } from './node_modules/firebase/firestore';
 import { getAuth, 
          signInWithEmailAndPassword, 
          onAuthStateChanged,
-         signOut } from "firebase/auth";
+         signOut } from "./node_modules/firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyBEBzX_1oDGVrh84OrNg9kkuQBIhUwyMSU",
   authDomain: "quote-book-87.firebaseapp.com",

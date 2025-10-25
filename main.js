@@ -47,10 +47,11 @@ function logout() {
 onAuthStateChanged(auth, async (user) => { // Await checkAdmPings here
     if (user) {
       uid = user.uid;
+      console.log(token);
       if (uid == "Ka02GemtK8fqTR31PnliLqBxRJI2" || uid == "fhlTbn28L0ZkHnimiZoVZP7fr9v2") {
         adminView.style.display = 'block'
-      } else {
-      loggedInView.style.display = 'block'}
+       } else {
+       loggedInView.style.display = 'block'}
       emailSignInForm.value = ""
       passwordSignInForm.value = ""
       loggedOutView.style.display = 'none'

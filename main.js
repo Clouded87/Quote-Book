@@ -31,7 +31,6 @@ const emailSignInForm = document.getElementById('signin-email-input')
 const passwordSignInForm = document.getElementById('signin-password-input')
 const loginBtn = document.getElementById('sign-in-btn')
 //const logoutBtns = document.getElementById('logout-button')
-let email = ""
 let uid = '';
 const loreView = document.getElementById('lore-view')
 function logout() {
@@ -48,13 +47,10 @@ function logout() {
 onAuthStateChanged(auth, async (user) => { // Await checkAdmPings here
     if (user) {
       uid = user.uid;
-      email = user.email;
-      console.log(uid);
       if (uid == "Ka02GemtK8fqTR31PnliLqBxRJI2" || uid == "fhlTbn28L0ZkHnimiZoVZP7fr9v2") {
         adminView.style.display = 'block'
       } else {
       loggedInView.style.display = 'block'}
-      emailSignInForm.innerText = email
       emailSignInForm.value = ""
       passwordSignInForm.value = ""
       loggedOutView.style.display = 'none'

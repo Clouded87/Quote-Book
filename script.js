@@ -6,7 +6,7 @@ export async function getAndDisplayQuotes() {
     const quotesContainer1 = document.getElementById('quotes-container1');
     try {
         const querySnapshot = await getDocs(collection(firestoredb, 'Quotes'));
-        quotesContainer.innerHTML = ''; // Clear loading message
+        quotesContainer.innerHTML = ''; 
         quotesContainer1.innerHTML = ''; // Clear loading message
         if (querySnapshot.empty) {
             quotesContainer.innerHTML = '<p>No quotes found yet!</p>';

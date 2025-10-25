@@ -30,7 +30,7 @@ const loggedOutView = document.getElementById('logged-out-view')
 const emailSignInForm = document.getElementById('signin-email-input')
 const passwordSignInForm = document.getElementById('signin-password-input')
 const loginBtn = document.getElementById('sign-in-btn')
-//const logoutBtns = document.getElementById('logout-button')
+
 let uid = '';
 const loreView = document.getElementById('lore-view')
 function logout() {

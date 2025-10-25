@@ -1,4 +1,6 @@
-import { firestoredb, collection, getDocs, addDoc, deleteDoc, doc } from './node_modules/firebase/firestore';
+import { collection, getDocs, addDoc, deleteDoc, doc } from './node_modules/firebase/firestore';
+
+import { firestoredb } from './main.js';
 
 export async function getAndDisplayQuotes() {
     const quotesContainer = document.getElementById('quotes-container');

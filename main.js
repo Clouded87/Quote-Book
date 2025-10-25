@@ -1,5 +1,5 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from 'firebase/firestore';
+import { initializeApp } from "./node_modules/firebase/app";
+import { getFirestore } from './node_modules/firebase/firestore';
 import { getAuth, 
          signInWithEmailAndPassword, 
          onAuthStateChanged,

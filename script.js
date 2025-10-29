@@ -1,4 +1,4 @@
-import { collection, getDocs, addDoc, deleteDoc, doc } from './node_modules/firebase/firestore';
+import { collection, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore';
 
 import { firestoredb } from './main.js';
 
